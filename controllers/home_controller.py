@@ -9,7 +9,6 @@ def index():
     return render_template("index.html", data=data)
 
 def operar_conjuntos():
-    # 1️⃣ Recibimos los datos enviados desde el HTML
     data = request.json
     conjunto_a = list(map(str.strip, data.get('conjuntoA', '').split(',')))
     conjunto_b = list(map(str.strip, data.get('conjuntoB', '').split(',')))
@@ -18,11 +17,9 @@ def operar_conjuntos():
     A = conjunto()
     B = conjunto()
     
-    # 2️⃣ Creamos los objetos Conjunto
     A = conjunto(elementos = conjunto_a)
     B = conjunto(elementos = conjunto_b)
 
-    # 3️⃣ Realizamos la operación correspondiente
     if operacion == "union":
         resultado = A.union(B)
     elif operacion == "interseccion":
